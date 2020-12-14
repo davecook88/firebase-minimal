@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ⚡4email>
+    <head>
+        <meta charset="utf-8" />
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script
+            async
+            custom-element="amp-form"
+            src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
+        ></script>
+        <script
+            async
+            custom-element="amp-bind"
+            src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+        ></script>
+        <script
+            async
+            custom-element="amp-list"
+            src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
+        ></script>
+        <script
+            async
+            custom-template="amp-mustache"
+            src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+        ></script>
+        <style amp4email-boilerplate>
+            body {
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="white-background">
+            <form
+                method="post"
+                id="checklist-form"
+                enctype="application/x-www-form-urlencoded"
+                action-xhr="https://us-central1-table-amp.cloudfunctions.net/app/api/task/ZTSeoG1cuxFSTUe8pzL9/checklist"
+            >
+                <amp-list
+                    class="center-content"
+                    template="checklist-item-template"
+                    src="https://us-central1-table-amp.cloudfunctions.net/app/api/task/ZTSeoG1cuxFSTUe8pzL9/checklist"
+                    layout="fixed"
+                    width="521"
+                    height="56"
+                    ><template id="checklist-item-template" type="amp-mustache">
+                        <div class="task-row outline">
+                            <div class="task task-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="checkbox-{{index}}"
+                                    value="checked"
+                                    name="{{index}}"
+                                    [checked]="{{checked}}"
+                                    on="change:checklist-form.submit"
+                                />
+                            </div>
+                            <div class="task task-name">{{title}}</div>
+                            <div class="task task-icons">
+                                😃{{typeof checked}}
+                            </div>
+                            <div class="task task-burger">...</div>
+                        </div>
+                    </template>
+                    <div overflow class="list-overflow">See more</div>
+                </amp-list>
+            </form>
+        </div>
+    </body>
+</html>
